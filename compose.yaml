@@ -1,0 +1,27 @@
+name: projet_sql
+
+services:
+  db:
+    image: postgres:17-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      LANG: fr_FR.utf8
+      POSTGRES_DB: postgres
+      POSTGRES_INITDB_ARGS: --locale-provider=icu --icu-locale=fr-FR
+      POSTGRES_PASSWORD: toto
+      POSTGRES_USER: postgres
+    user: postgres
+    volumes:
+      - .:/sql
+      - db:/var/lib/postgresql/data
+    working_dir: /sql
+  
+  adminer:
+    image: adminer:latest
+    ports:
+      - 8080:8080
+
+volumes:
+  db:
+    driver: local
