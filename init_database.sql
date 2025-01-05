@@ -181,3 +181,10 @@ INSERT INTO line_station (line_code, station_id, position) VALUES
 INSERT INTO department (name, discount) VALUES
 ('Accounting', 10.0),
 ('Inspectors', 100.0);
+
+-- Ajout des forfaits
+INSERT INTO pass (code, name, monthly_price, duration, min_zone, max_zone)
+VALUES 
+('Z1312', 'Zone 1-3', 30.0, 12, 1, 3),
+('Z1412', 'Zone 1-4', 85.0, 12, 1, 4),
+('Z1512', 'Zone 1-5', 300.0, 12, 1, 5);
