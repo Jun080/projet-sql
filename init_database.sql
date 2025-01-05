@@ -43,6 +43,7 @@ CREATE TABLE station (
     name VARCHAR(64) NOT NULL,
     city VARCHAR(32) NOT NULL,
     zone_number INTEGER,
+    type VARCHAR(64) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (zone_number) REFERENCES zone(number)
 );
@@ -150,20 +151,22 @@ INSERT INTO zone (name, price) VALUES
 INSERT INTO transport_type (id, line_name, max_capacity, average_duration) VALUES
 ('M01', 'Line 1', 600, 2),
 ('T01', 'Line 3', 300, 3),
-('B01', 'Line 131', 80, 10);
+('B01', 'Line 131', 80, 10),
+('REA', 'RER A', 700, 10);
 
 -- Lines
 INSERT INTO line (code, transport_type_id) VALUES
 ('M1', 'M01'),
 ('T3', 'T01'),
-('131', 'B01');
+('131', 'B01'),
+('RA', 'REA');
 
 -- Stations
-INSERT INTO station (name, city, zone_number) VALUES
-('Cergy-le-Haut', 'Cergy', 5),
-('Marne-la-Vallée-Chessy', 'Marne-la-Vallée', 5),
-('Argenteuil', 'Argenteuil', 4),
-('Paris', 'Paris', 1);
+INSERT INTO station (name, city, zone_number, type) VALUES
+('Cergy-le-Haut', 'Cergy', 5, 'REA'),
+('Marne-la-Vallée-Chessy', 'Marne-la-Vallée', 5, 'REA'),
+('Argenteuil', 'Argenteuil', 4, 'REA'),
+('Paris', 'Paris', 1, 'REA');
 
 -- Line-Station links with specific positions
 INSERT INTO line_station (line_code, station_id, position) VALUES
