@@ -26,6 +26,8 @@ SELECT add_person('John', 'Doe', 'john.doe@example.com', '0123456789', '123 Main
 SELECT add_person('Jane', 'Doe', 'jane.doe@example.com', '0987654321', '456 Elm St', 'Lyon', '69001');
 SELECT add_person('Smith', 'Alice', 'alice.smith@example.com', '0123456789', '789 Oak St', 'Paris', '75002');
 SELECT add_person('John', 'Doe', 'john.doe@example.com', '0123456789', '123 Main St', 'Paris', '75001'); -- Doit échouer (doublon)
+SELECT add_person('Maximoff', 'Wanda', 'wanda.maximoff@example.com', '0123456789', '789 Marvel St', 'Paris', '75003');
+SELECT add_contract('pmaximoff', 'pietro.maximoff@example.com', '2023-04-01', 'IT');
 
 CREATE OR REPLACE FUNCTION add_offer(
     p_code VARCHAR(5),
@@ -130,7 +132,7 @@ SELECT add_subscription(1, 'john.doe@example.com', 'Z1312', '2025-01-10');
 
 SELECT add_subscription(101, 'john.doe@example.com', 'Z1312', '2025-01-10');  -- Doit échouer
 SELECT add_subscription(102, 'user@example.com', 'O8', '2025-01-10');  -- Doit échouer
-
+SELECT add_subscription(2, 'wanda.maximoff@example.com', 'Z1512', '2026-01-10');
 
 
 
